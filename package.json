@@ -1,0 +1,23 @@
+{
+  "name": "slideshare",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "mongoose": "^3.8.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattcodez/slideshare.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattcodez/slideshare/issues"
+  },
+  "homepage": "https://github.com/mattcodez/slideshare"
+}
