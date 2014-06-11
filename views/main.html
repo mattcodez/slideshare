@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
-	<div id="mainImage"></div>
-	<div id="shareQR"></div>
+	<div id="main">
+		<form id="newShow">
+			<input name="name" type="text" placeholder="Show name" required="required">
+			<input type="submit" value="Create">
+		</form>
+	</div>
+	
+	<div id="show">
+	</div>
 </body>
 </html>
