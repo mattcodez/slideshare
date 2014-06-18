@@ -5,13 +5,14 @@ function init(){
 }
 
 function handlers(){
-	$('#newShow').onSubmit(function(e){
+	$('#newShow').submit(function(e){
 		e.preventDefault();
-		createShow($(this).serializeArray(),function(show){
+		var form = $(this);
+		createShow({post:{title:form.find('[name=title]').val()}},function(show){
 			var pane = $('#show');
 			displayShow(pane, show);
 			pane.show();
-		);
+		});
 		
 		return false;
 	});
@@ -19,12 +20,14 @@ function handlers(){
 
 /**DOM**/
 function displayShow(el, show){
-	el.append($('<h1></h1>').text(show.name));
+	el.append($('<h1></h1>').text(show.title));
 }
 
 /**Ajax**/
 function createShow(data, cb){
 	$.post('/api/post', data, function(show){
 		cb(show);
+	}).fail(function(err){
+		console.dir(arguments);
 	});
 }
