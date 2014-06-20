@@ -10,7 +10,14 @@ module.exports = function(app) {
 	route.main = function(req, res){
 		res.render('main', {});
 	};
+	
+	// show.html
+	route.show= function(req, res){
+		//req.params.id
+		res.render('show', {});
+	};
 
 	app.get('/', route.index);
 	app.get('/main', route.main);
+	app.get('/show/:id', route.show);
 };

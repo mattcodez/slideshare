@@ -9,9 +9,9 @@ function handlers(){
 		e.preventDefault();
 		var form = $(this);
 		createShow({post:{title:form.find('[name=title]').val()}},function(show){
-			var pane = $('#show');
-			displayShow(pane, show);
-			pane.show();
+			if (show._id){
+				window.location = '/show/' + show._id;
+			}
 		});
 		
 		return false;
