@@ -55,28 +55,7 @@ module.exports = function(app) {
 
     Post.findById(id, function (err, post) {
 
-
-    
-      if(typeof req.body.post["title"] != 'undefined'){
-        post["title"] = req.body.post["title"];
-      }  
-    
-      if(typeof req.body.post["excerpt"] != 'undefined'){
-        post["excerpt"] = req.body.post["excerpt"];
-      }  
-    
-      if(typeof req.body.post["content"] != 'undefined'){
-        post["content"] = req.body.post["content"];
-      }  
-    
-      if(typeof req.body.post["active"] != 'undefined'){
-        post["active"] = req.body.post["active"];
-      }  
-    
-      if(typeof req.body.post["created"] != 'undefined'){
-        post["created"] = req.body.post["created"];
-      }  
-    
+	  post.photos = req.files.photos.name;
 
       return post.save(function (err) {
         if (!err) {

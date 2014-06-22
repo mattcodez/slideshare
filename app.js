@@ -61,7 +61,7 @@ if ('production' == env) {
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(methodOverride());
-app.use(bodyParser());
+app.use(bodyParser({ keepExtensions: true, uploadDir: "uploads" }));
 
 // Bootstrap routes/api
 var routesPath = path.join(__dirname, 'routes');
