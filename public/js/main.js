@@ -1,3 +1,4 @@
+"use strict";
 $(init);
 
 function init(){
@@ -9,7 +10,7 @@ function listShows(){
 	var el = $('#shows');
 	getShows(function(shows){
 		for (var i = 0; i < shows.length; i++){
-			addShowItem(el, show[i]);
+			addShowItem(el, shows[i]);
 		}
 	});
 }
@@ -34,6 +35,11 @@ function displayShow(el, show){
 }
 
 function addShowItem(el, show){
+	el.append(
+		$('<a></a>')
+		.text(show.title)
+		.attr('href', '/show/' + show._id)
+	);
 }
 
 /**Ajax**/
@@ -46,7 +52,7 @@ function createShow(data, cb){
 }
 
 function getShows(cb){
-	$.get('/api/posts', data, function(shows){
-		cb(shows);
+	$.get('/api/posts', function(data){
+		cb(data.posts);
 	});
 }
