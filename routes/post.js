@@ -52,6 +52,9 @@ module.exports = function(app) {
   // PUT
   api.editPost = function (req, res) {
     var id = req.params.id;
+	 req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+		console.log('file uploaded: ' + file);
+  });
 
     Post.findById(id, function (err, post) {
 

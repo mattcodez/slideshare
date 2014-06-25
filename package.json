@@ -3,15 +3,16 @@
   "description": "slushtest app description here",
   "version": "0.0.1",
   "private": true,
-	"dependencies": {
-		"ejs": "latest",
-		"express": "latest",
-		"mongoose": "latest",
+  "dependencies": {
+    "ejs": "latest",
+    "express": "latest",
+    "mongoose": "latest",
     "morgan": "latest",
     "method-override": "latest",
     "body-parser": "latest",
-    "errorhandler": "latest"
-	},
+    "errorhandler": "latest",
+    "connect-busboy": "0.0.1"
+  },
   "devDependencies": {
     "gulp": "latest",
     "bower": "latest",
@@ -23,7 +24,7 @@
     "forever": "latest"
   },
   "scripts": {
-    "test" : "gulp test",
+    "test": "gulp test",
     "start": "app.js"
-  }	
+  }
 }

@@ -7,7 +7,8 @@ var express = require('express'),
     methodOverride = require('method-override'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    errorhandler = require('errorhandler');
+    errorhandler = require('errorhandler'),
+	 busboy = require('connect-busboy');
 
 var app = module.exports = exports.app = express();
 
@@ -61,6 +62,7 @@ if ('production' == env) {
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(methodOverride());
+app.use(busboy());
 app.use(bodyParser({ keepExtensions: true, uploadDir: "uploads" }));
 
 // Bootstrap routes/api
