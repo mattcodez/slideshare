@@ -15,11 +15,11 @@ function init(){
 		var formData = getImageFormData(form.find('input[type=file]')[0].files);
 		
 		$.ajax({
-			url: '/api/post/' + showId,
+			url: '/api/post' + showId,
 			data: formData,
 			processData: false,
 			contentType: 'multipart/form-data',
-			type: 'PUT',
+			type: 'POST',
 			success: function(data){
 			}
 		});
