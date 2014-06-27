@@ -29,9 +29,9 @@ module.exports = function(app) {
 
   // POST
   api.addPost = function (req, res) {
-		 req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+	/*	 req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 		console.dir(arguments);
-  });
+  });*/
     
     var post;
       
@@ -53,12 +53,12 @@ module.exports = function(app) {
   };
 
   // PUT
-  api.editPost = function (req, res) {
+  api.editPost = function (req, res) {console.dir(req);
     var id = req.params.id;
 
     Post.findById(id, function (err, post) {
 
-	  post.photos = req.files.photos.name;
+	  //post.photos = req.files.photos.name;
 
       return post.save(function (err) {
         if (!err) {

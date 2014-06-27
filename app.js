@@ -62,8 +62,8 @@ if ('production' == env) {
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(methodOverride());
-app.use(busboy());
-//app.use(bodyParser());
+//app.use(busboy());
+app.use(bodyParser());
 
 // Bootstrap routes/api
 var routesPath = path.join(__dirname, 'routes');
