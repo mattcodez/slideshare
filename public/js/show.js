@@ -19,7 +19,7 @@ function init(){
 			data: formData,
 			processData: false,
 			contentType: 'multipart/form-data',
-			type: 'PUT',
+			type: 'POST',
 			success: function(data){
 			}
 		});

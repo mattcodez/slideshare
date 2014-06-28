@@ -28,7 +28,7 @@ module.exports = function(app) {
   };
 
   // POST
-  api.addPost = function (req, res) {
+  api.addPost = function (req, res) {console.log(req.files);
 	/*	 req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
 		console.dir(arguments);
   });*/
@@ -53,7 +53,7 @@ module.exports = function(app) {
   };
 
   // PUT
-  api.editPost = function (req, res) {console.dir(req);
+  api.editPost = function (req, res) {
     var id = req.params.id;
 
     Post.findById(id, function (err, post) {
