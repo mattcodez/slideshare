@@ -59,12 +59,13 @@ if ('production' == env) {
     }));
 }
 
+var multer = require('multer');
+
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(methodOverride());
- app.use(express.multipart());
-//app.use(busboy());
-app.use(express.bodyParser({keepExtensions:true,uploadDir:path.join(__dirname,'/files')}));
+app.use(multer({ dest: './uploads/'}))
+//app.use(express.bodyParser());
 
 // Bootstrap routes/api
 var routesPath = path.join(__dirname, 'routes');

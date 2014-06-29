@@ -11,7 +11,8 @@
     "method-override": "latest",
     "body-parser": "latest",
     "errorhandler": "latest",
-    "connect-busboy": "0.0.1"
+    "connect-busboy": "0.0.1",
+    "multer": "~0.1.0"
   },
   "devDependencies": {
     "gulp": "latest",

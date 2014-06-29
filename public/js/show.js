@@ -18,7 +18,7 @@ function init(){
 			url: '/api/post/' + showId,
 			data: formData,
 			processData: false,
-			contentType: 'multipart/form-data',
+			contentType: false,
 			type: 'POST',
 			success: function(data){
 			}
