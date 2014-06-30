@@ -19,7 +19,7 @@ function init(){
 			data: formData,
 			processData: false,
 			contentType: false,
-			type: 'POST',
+			type: 'PUT',
 			success: function(data){
 			}
 		});

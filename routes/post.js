@@ -28,11 +28,7 @@ module.exports = function(app) {
   };
 
   // POST
-  api.addPost = function (req, res) {console.log(req.files);
-	/*	 req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-		console.dir(arguments);
-  });*/
-    
+  api.addPost = function (req, res) {
     var post;
       
     if(typeof req.body.post == 'undefined'){
@@ -57,8 +53,7 @@ module.exports = function(app) {
     var id = req.params.id;
 
     Post.findById(id, function (err, post) {
-
-	  //post.photos = req.files.photos.name;
+	  post.photos = req.files.photos.name;
 
       return post.save(function (err) {
         if (!err) {
