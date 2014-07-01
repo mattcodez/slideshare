@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 
 var fields = {
 	title: { type: String },
-	photos: {type: String},
+	photos: {type: Array},
 	created: { type: Date , default: Date.now } 
 };
 

@@ -1,3 +1,5 @@
+var util = require('util');
+
 module.exports = function(app) {
   // Module dependencies.
   var mongoose = require('mongoose'),
@@ -53,7 +55,12 @@ module.exports = function(app) {
     var id = req.params.id;
 
     Post.findById(id, function (err, post) {
-	  post.photos = req.files.photos.name;
+		if (util.isArray(post.photos)){
+			post.photos.push(req.files.photos.name);
+		}
+		else {
+			post.photos = [req.files.photos.name];
+		}
 
       return post.save(function (err) {
         if (!err) {

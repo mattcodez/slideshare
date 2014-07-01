@@ -65,7 +65,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(methodOverride());
 app.use(multer({ dest: './uploads/'}))
-//app.use(express.bodyParser());
+app.use(require('body-parser')());
 
 // Bootstrap routes/api
 var routesPath = path.join(__dirname, 'routes');

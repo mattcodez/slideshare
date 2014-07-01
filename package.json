@@ -9,7 +9,7 @@
     "mongoose": "latest",
     "morgan": "latest",
     "method-override": "latest",
-    "body-parser": "latest",
+    "body-parser": "^1.4.3",
     "errorhandler": "latest",
     "connect-busboy": "0.0.1",
     "multer": "~0.1.0"
