@@ -3,11 +3,15 @@ $(init);
 function init(){
 	var sections = window.location.pathname.split('/');
 	var showId = sections[sections.length - 1];
+	var photoList = [];
 	
+	//Get initial show data
 	$.getJSON('/api/post/' + showId, function(show){
 		loadSection($(document.body), show.post);
+		photoList = show.post.photos || photoList;
 	});
 	
+	//Upload new photos
 	$('#newImage').submit(function(e){
 		e.preventDefault();
 		var form = $(this);
@@ -20,10 +24,30 @@ function init(){
 			processData: false,
 			contentType: false,
 			type: 'PUT',
-			success: function(data){
+			success: function(show){
+				photoList = show.photos || photoList;
 			}
 		});
 	});
+	
+	//Swap photos
+	var picHolder = $('#picture');
+	var picIndex = 0;
+	setInterval(function(){
+		if (!photoList[picIndex]){
+			if (photoList.length === 0){
+				return;
+			}
+			picIndex = 0;
+		}
+		
+		var photo = photoList[picIndex++];
+		picHolder.empty();
+		picHolder.append(
+			$('<img>')
+				.attr('src', '/uploads/' + photo)
+		);
+	}, 4000);
 }
 
 function getImageFormData(files){

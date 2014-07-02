@@ -64,7 +64,7 @@ var multer = require('multer');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(methodOverride());
-app.use(multer({ dest: './uploads/'}))
+app.use(multer({ dest: './public/uploads/'}))
 app.use(require('body-parser')());
 
 // Bootstrap routes/api
