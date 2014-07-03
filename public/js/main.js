@@ -35,7 +35,7 @@ function displayShow(el, show){
 }
 
 function addShowItem(el, show){
-	el.append(
+	el.append('<p></p>').append(
 		$('<a></a>')
 		.text(show.title)
 		.attr('href', '/show/' + show._id)
