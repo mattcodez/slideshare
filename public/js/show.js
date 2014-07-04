@@ -4,20 +4,20 @@ function init(){
 	var sections = window.location.pathname.split('/');
 	var showId = sections[sections.length - 1];
 	var photoList = [];
-	
+
 	//Get initial show data
 	$.getJSON('/api/post/' + showId, function(show){
 		loadSection($(document.body), show.post);
 		photoList = show.post.photos || photoList;
 	});
-	
+
 	//Upload new photos
 	$('#newImage').submit(function(e){
 		e.preventDefault();
 		var form = $(this);
-		
+
 		var formData = getImageFormData(form.find('input[type=file]')[0].files);
-		
+
 		$.ajax({
 			url: '/api/post/' + showId,
 			data: formData,
@@ -29,7 +29,7 @@ function init(){
 			}
 		});
 	});
-	
+
 	//Swap photos
 	var picHolder = $('#picture');
 	var picIndex = 0;
@@ -40,7 +40,7 @@ function init(){
 			}
 			picIndex = 0;
 		}
-		
+
 		var photo = photoList[picIndex++];
 		picHolder.empty();
 		picHolder.append(
@@ -48,6 +48,12 @@ function init(){
 				.attr('src', '/uploads/' + photo)
 		);
 	}, 4000);
+
+	//Generate QRCode
+	var qrcode = new QRCode("qrcode", {
+		text: window.location.href,
+		correctLevel : QRCode.CorrectLevel.H
+	});
 }
 
 function getImageFormData(files){
@@ -61,7 +67,7 @@ function getImageFormData(files){
 
 		formData.append('photos', file, file.name);
 	}
-	
+
 	return formData;
 }
 
