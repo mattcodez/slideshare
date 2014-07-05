@@ -1,0 +1,10 @@
+#picture{
+  position:absolute;
+  right:0;
+  width:80%;
+}
+
+#qrcode{
+  position:absolute;
+  left:2em;
+}
