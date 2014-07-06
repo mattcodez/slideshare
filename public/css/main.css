@@ -1,0 +1,31 @@
+body{
+  background-color: rgb(246, 205, 151);
+}
+
+#newShow {
+  width:100%;
+  max-width:768px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgb(223,66,47);
+  padding: 4px;
+  border: 1px solid rgb(223,66,47);
+  border-radius: 8px;
+  text-align: center;
+}
+
+#newShow input[type=text]{
+  width: 99%;
+  /* line-height: 3.5em; */
+  font-size: 3em;
+}
+
+#newShow button{
+  width: 99%;
+  font-size: 2em;
+  color: white;
+  background-color: rgb(66,142,106);
+  border: none;
+  cursor: pointer;
+}
