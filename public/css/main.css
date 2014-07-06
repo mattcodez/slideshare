@@ -19,6 +19,7 @@ body{
   width: 99%;
   /* line-height: 3.5em; */
   font-size: 3em;
+  border-radius: 9px;
 }
 
 #newShow button{
@@ -28,4 +29,6 @@ body{
   background-color: rgb(66,142,106);
   border: none;
   cursor: pointer;
+  border-radius: 9px;
+  margin-top: 7px;
 }
