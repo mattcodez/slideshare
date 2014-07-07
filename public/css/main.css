@@ -1,5 +1,11 @@
 body{
-  background-color: rgb(246, 205, 151);
+  background-color: rgb(151, 170, 246);
+  font-family: 'Lato', sans-serif;
+}
+
+#title {
+  font-size: 4em;
+  text-align: center;
 }
 
 #newShow {
@@ -8,11 +14,12 @@ body{
   left: 0;
   right: 0;
   margin: auto;
-  background-color: rgb(223,66,47);
-  padding: 4px;
-  border: 1px solid rgb(223,66,47);
+  background-color: rgb(218, 80, 63);
+  padding: 6px;
+  /* border: 1px solid rgb(223,66,47); */
   border-radius: 8px;
   text-align: center;
+  margin-top: 1.8em;
 }
 
 #newShow input[type=text]{
@@ -20,6 +27,7 @@ body{
   /* line-height: 3.5em; */
   font-size: 3em;
   border-radius: 9px;
+  border: 1px solid rgb(218, 80, 63);
 }
 
 #newShow button{
