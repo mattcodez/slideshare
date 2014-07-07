@@ -40,3 +40,20 @@ body{
   border-radius: 9px;
   margin-top: 7px;
 }
+
+#about h2{
+    text-align: center;
+
+    margin-top: 2em;
+    text-decoration: underline;
+}
+
+#about p{
+    max-width: 498px;
+  
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 1.2em;
+}
