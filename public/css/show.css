@@ -1,7 +1,25 @@
+#side{
+  position: absolute;
+}
+
+#title{
+
+}
+
+#picAdd{
+    margin-top: 2em;
+
+
+    margin-bottom: 2em;
+}
+
 #picture{
   position:absolute;
   right:0;
-  width:80%;
+  width: 74%;
+  height: 90%;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 #qrcode{

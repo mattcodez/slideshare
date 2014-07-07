@@ -42,10 +42,8 @@ function init(){
 		}
 
 		var photo = photoList[picIndex++];
-		picHolder.empty();
-		picHolder.append(
-			$('<img>')
-				.attr('src', '/uploads/' + photo)
+		picHolder.css(
+			'background-image', 'url(/uploads/' + photo + ')'
 		);
 	}, 4000);
 
