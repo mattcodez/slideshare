@@ -1,4 +1,6 @@
 var util = require('util');
+var Hashids = require("hashids");
+
 
 module.exports = function(app) {
   // Module dependencies.
@@ -11,7 +13,7 @@ module.exports = function(app) {
     Post.find(function(err, posts) {
       if (err) {
         res.json(500, err);
-      } else {    
+      } else {
         res.json({posts: posts});
       }
     });
@@ -32,13 +34,13 @@ module.exports = function(app) {
   // POST
   api.addPost = function (req, res) {
     var post;
-      
+
     if(typeof req.body.post == 'undefined'){
       return res.json(500, {message: 'post is undefined'});
     }
 
     post = new Post(req.body.post);
-
+    
     post.save(function (err) {
       if (!err) {
         console.log("created post");
@@ -65,7 +67,7 @@ module.exports = function(app) {
       return post.save(function (err) {
         if (!err) {
           console.log("updated post");
-          return res.json(200, post.toObject());        
+          return res.json(200, post.toObject());
         } else {
          return res.json(500, err);
         }

@@ -12,7 +12,8 @@
     "body-parser": "^1.4.3",
     "errorhandler": "latest",
     "connect-busboy": "0.0.1",
-    "multer": "~0.1.0"
+    "multer": "~0.1.0",
+    "hashids": "~0.3.3"
   },
   "devDependencies": {
     "gulp": "latest",
