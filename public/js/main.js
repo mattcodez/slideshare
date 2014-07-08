@@ -20,11 +20,11 @@ function handlers(){
 		e.preventDefault();
 		var form = $(this);
 		createShow({post:{title:form.find('[name=title]').val()}},function(show){
-			if (show._id){
-				window.location = '/show/' + show._id;
+			if (show.hash){
+				window.location = '/show/' + show.hash;
 			}
 		});
-		
+
 		return false;
 	});
 }
@@ -38,7 +38,7 @@ function addShowItem(el, show){
 	el.append('<p></p>').append(
 		$('<a></a>')
 		.text(show.title)
-		.attr('href', '/show/' + show._id)
+		.attr('href', '/show/' + show.hash)
 	);
 }
 

@@ -1,6 +1,15 @@
 var util = require('util');
 var Hashids = require("hashids");
+hashids = new Hashids(
+  "this is my salt",
+  0,
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-'
+);
 
+function getPostId(hash){
+  var hash = (hash || '').toUpperCase();
+  return hashids.decryptHex(hash);
+}
 
 module.exports = function(app) {
   // Module dependencies.
@@ -14,6 +23,10 @@ module.exports = function(app) {
       if (err) {
         res.json(500, err);
       } else {
+        posts.forEach(function(post){
+          post.hash = hashids.encryptHex(post._id);
+          delete post._id;
+        });
         res.json({posts: posts});
       }
     });
@@ -21,8 +34,7 @@ module.exports = function(app) {
 
   // GET
   api.post = function (req, res) {
-    var id = req.params.id;
-    Post.findOne({ '_id': id }, function(err, post) {
+    Post.findOne({ '_id': getPostId(req.params.hash) }, function(err, post) {
       if (err) {
         res.json(404, err);
       } else {
@@ -40,11 +52,16 @@ module.exports = function(app) {
     }
 
     post = new Post(req.body.post);
-    
+
     post.save(function (err) {
       if (!err) {
         console.log("created post");
-        return res.json(201, post.toObject());
+
+        var postObj = post.toObject();
+        postObj.hash = hashids.encryptHex(postObj._id);
+        delete postObj._id;
+
+        return res.json(201, postObj);
       } else {
          return res.json(500, err);
       }
@@ -54,7 +71,7 @@ module.exports = function(app) {
 
   // PUT
   api.editPost = function (req, res) {
-    var id = req.params.id;
+    var id = getPostId(req.params.hash);
 
     Post.findById(id, function (err, post) {
 		if (util.isArray(post.photos)){
@@ -67,7 +84,9 @@ module.exports = function(app) {
       return post.save(function (err) {
         if (!err) {
           console.log("updated post");
-          return res.json(200, post.toObject());
+          var postObj = post.toObject();
+          delete postObj._id;
+          return res.json(200, postObj);
         } else {
          return res.json(500, err);
         }
@@ -96,8 +115,8 @@ module.exports = function(app) {
 
 
   app.get('/api/posts', api.posts);
-  app.get('/api/post/:id', api.post);
+  app.get('/api/post/:hash', api.post);
   app.post('/api/post', api.addPost);
-  app.put('/api/post/:id', api.editPost);
-  app.delete('/api/post/:id', api.deletePost);
+  app.put('/api/post/:hash', api.editPost);
+  app.delete('/api/post/:hash', api.deletePost);
 };
