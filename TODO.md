@@ -1,2 +1,1 @@
-- [ ] Separate routes for image posting?
-- [ ] Create new show with existing post api
+- [x] Create new show with existing post api
