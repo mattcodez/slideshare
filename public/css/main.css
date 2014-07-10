@@ -1,21 +1,36 @@
 body{
-  background-color: rgb(151, 170, 246);
+  background-color: rgb(41, 128, 185);
   font-family: 'Lato', sans-serif;
   padding: 1em;
+  color: white;
 }
 
-#title {
+#title, #middlemsg {
   font-size: 4em;
   text-align: center;
 }
 
-#newShow {
+#middlemsg {
+	/* position: relative; */
+	margin-top: 2em;
+}
+
+FORM#existingShow {
+	background-color:rgb(52, 73, 94);
+}
+
+FORM#existingShow button{
+	background-color:rgb(149, 165, 166);
+}
+
+FORM {
+  /* position: relative; */
   width:100%;
   max-width:768px;
   left: 0;
   right: 0;
   margin: auto;
-  background-color: rgb(218, 80, 63);
+  background-color: rgb(230, 126, 34);
   padding: 6px;
   /* border: 1px solid rgb(223,66,47); */
   border-radius: 8px;
@@ -23,19 +38,20 @@ body{
   margin-top: 1.8em;
 }
 
-#newShow input[type=text]{
+FORM input[type=text]{
   width: 99%;
   /* line-height: 3.5em; */
   font-size: 3em;
   border-radius: 9px;
-  border: 1px solid rgb(218, 80, 63);
+  border: none;
+  /* border: 1px solid rgb(218, 80, 63); */
 }
 
-#newShow button{
+FORM button{
   width: 99%;
   font-size: 2em;
   color: white;
-  background-color: rgb(66,142,106);
+  background-color: rgb(46, 204, 113);
   border: none;
   cursor: pointer;
   border-radius: 9px;
