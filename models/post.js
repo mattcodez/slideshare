@@ -24,4 +24,10 @@ postSchema.virtual('hash').get(function(){
   return hashids.encryptHex(this._id);
 });
 
+postSchema.options.toJSON.transform = function (doc, ret, options) {
+  // remove the _id of every document before returning the result
+  delete ret._id;
+  delete ret.id;
+}
+
 module.exports = mongoose.model('Post', postSchema);
