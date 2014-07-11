@@ -20,13 +20,25 @@ function handlers(){
 		e.preventDefault();
 		var form = $(this);
 		createShow({post:{title:form.find('[name=title]').val()}},function(show){
-			if (show.hash){
-				window.location = '/show/' + show.hash;
-			}
+			goToShow(show.hash);
 		});
 
 		return false;
 	});
+	
+	$('#existingShow').submit(function(e){
+		e.preventDefault();
+		var form = $(this);
+		var showId = form.find('[name=hashid]').val();
+		goToShow(showId);
+		return false;
+	});
+}
+
+function goToShow(showId){
+	if (showId){
+		window.location = '/show/' + show.hash;
+	}
 }
 
 /**DOM**/
