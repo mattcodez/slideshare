@@ -1,6 +1,8 @@
+'use strict';
+
 var util = require('util');
 var Hashids = require("hashids");
-hashids = new Hashids(
+var hashids = new Hashids(
   "this is my salt",
   0,
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-'
@@ -23,10 +25,6 @@ module.exports = function(app) {
       if (err) {
         res.json(500, err);
       } else {
-        posts.forEach(function(post){
-          post.hash = hashids.encryptHex(post._id);
-          delete post._id;
-        });
         res.json({posts: posts});
       }
     });
@@ -56,12 +54,7 @@ module.exports = function(app) {
     post.save(function (err) {
       if (!err) {
         console.log("created post");
-
-        var postObj = post.toObject();
-        postObj.hash = hashids.encryptHex(postObj._id);
-        delete postObj._id;
-
-        return res.json(201, postObj);
+        return res.json(201, post);
       } else {
          return res.json(500, err);
       }

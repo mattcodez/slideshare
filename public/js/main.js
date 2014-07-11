@@ -37,18 +37,14 @@ function handlers(){
 
 function goToShow(showId){
 	if (showId){
-		window.location = '/show/' + show.hash;
+		window.location = '/show/' + showId;
 	}
 }
 
 /**DOM**/
-function displayShow(el, show){
-	el.append($('<h1></h1>').text(show.title));
-}
-
 function addShowItem(el, show){
 	el.append('<p></p>').append(
-		$('<a></a>')
+		$('<a style="color:red;"></a>')
 		.text(show.title)
 		.attr('href', '/show/' + show.hash)
 	);
