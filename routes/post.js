@@ -4,13 +4,13 @@ var util = require('util');
 var Hashids = require("hashids");
 var hashids = new Hashids(
   "this is my salt",
-  0,
+  4,
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-'
 );
 
 function getPostId(hash){
   var hash = (hash || '').toUpperCase();
-  return hashids.decryptHex(hash);
+  return hashids.decrypt(hash);
 }
 
 module.exports = function(app) {

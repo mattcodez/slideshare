@@ -2,7 +2,7 @@
 var Hashids = require("hashids");
 var hashids = new Hashids(
   "this is my salt",
-  0,
+  4,
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-'
 );
 
@@ -28,8 +28,8 @@ postSchema.plugin(pureautoinc.plugin, {
 
 postSchema.set('toJSON', {virtuals: true});
 
-postSchema.virtual('hash').get(function(){console.dir(this);
-  return hashids.encryptHex(this._id);
+postSchema.virtual('hash').get(function(){
+  return hashids.encrypt(this._id);
 });
 
 postSchema.options.toJSON.transform = function (doc, ret, options) {
