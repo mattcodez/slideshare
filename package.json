@@ -13,7 +13,8 @@
     "errorhandler": "latest",
     "connect-busboy": "0.0.1",
     "multer": "~0.1.0",
-    "hashids": "~0.3.3"
+    "hashids": "~0.3.3",
+    "mongoose-pureautoinc": "^2012.1.0"
   },
   "devDependencies": {
     "gulp": "latest",

@@ -8,7 +8,7 @@ var express = require('express'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     errorhandler = require('errorhandler'),
-	 busboy = require('connect-busboy');
+	 pureautoinc = require('mongoose-pureautoinc');
 
 var app = module.exports = exports.app = express();
 
@@ -16,6 +16,7 @@ app.locals.siteName = "slushtest";
 
 // Connect to database
 var db = require('./config/db');
+pureautoinc.init(db.mongoose.connections[0]);
 app.use(express.static(__dirname + '/public'));
 
 

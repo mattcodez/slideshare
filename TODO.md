@@ -1,1 +1,3 @@
 - [x] Create new show with existing post api
+- [ ] Move hash code to separate file
+- [ ] Resize images for lower bandwidth, possibly client side

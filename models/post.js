@@ -6,6 +6,8 @@ var hashids = new Hashids(
   'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-'
 );
 
+var pureautoinc = require('mongoose-pureautoinc');
+
 var mongoose = require('mongoose'),
 		Schema = mongoose.Schema,
 		ObjectId = Schema.ObjectId;
@@ -13,14 +15,20 @@ var mongoose = require('mongoose'),
 var fields = {
 	title: { type: String },
 	photos: {type: Array},
-	created: { type: Date , default: Date.now } 
+	created: { type: Date , default: Date.now }
 };
 
 var postSchema = new Schema(fields);
 
+postSchema.plugin(pureautoinc.plugin, {
+    model: 'Post',
+    field: '_id',
+	 start: 0
+});
+
 postSchema.set('toJSON', {virtuals: true});
 
-postSchema.virtual('hash').get(function(){
+postSchema.virtual('hash').get(function(){console.dir(this);
   return hashids.encryptHex(this._id);
 });
 
