@@ -13,6 +13,7 @@ var mongoose = require('mongoose'),
 		ObjectId = Schema.ObjectId;
 
 var fields = {
+	_id: {type: Number},
 	title: { type: String },
 	photos: {type: Array},
 	created: { type: Date , default: Date.now }

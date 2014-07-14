@@ -32,7 +32,8 @@ module.exports = function(app) {
 
   // GET
   api.post = function (req, res) {
-    Post.findOne({ '_id': getPostId(req.params.hash) }, function(err, post) {
+	 //Have to use parseInt as Mongoose or MongoDB doesn't try very hard to cast "2" to 2
+    Post.findOne({ '_id': parseInt(getPostId(req.params.hash), 10) }, function(err, post) {
       if (err) {
         res.json(404, err);
       } else {
