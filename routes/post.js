@@ -66,25 +66,26 @@ module.exports = function(app) {
   // PUT
   api.editPost = function (req, res) {
     var id = getPostId(req.params.hash);
-
-    Post.findById(id, function (err, post) {
+	 
+    Post.findById(~~id, function (err, post) {
+		if (!post) {
+			return res.json(500, err);
+		}
+		
 		if (util.isArray(post.photos)){
 			post.photos.push(req.files.photos.name);
 		}
 		else {
 			post.photos = [req.files.photos.name];
 		}
-
+console.dir(post);
       return post.save(function (err) {
         if (!err) {
           console.log("updated post");
-          var postObj = post.toObject();
-          delete postObj._id;
-          return res.json(200, postObj);
+          return res.json(200, post);
         } else {
          return res.json(500, err);
         }
-        return res.json(post);
       });
     });
 
