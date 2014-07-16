@@ -72,12 +72,11 @@ module.exports = function(app) {
 			return res.json(500, err);
 		}
 		
-		if (util.isArray(post.photos)){
-			post.photos.push(req.files.photos.name);
+		var newPhoto = req.files.photos.name;
+		if (newPhoto){
+			post.photos.addToSet(newPhoto);
 		}
-		else {
-			post.photos = [req.files.photos.name];
-		}
+		
 console.dir(post);
       return post.save(function (err) {
         if (!err) {
