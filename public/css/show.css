@@ -1,5 +1,6 @@
 #body{
   background-color: #f39c12;
+  padding-left: 1em;
 }
 
 #side{
@@ -28,5 +29,4 @@
 
 #qrcode{
   position:absolute;
-  left:2em;
 }
