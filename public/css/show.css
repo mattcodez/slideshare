@@ -5,6 +5,7 @@
 
 #side{
   position: absolute;
+  width: 25%;
 }
 
 #title{
@@ -29,4 +30,15 @@
 
 #qrcode{
   position:absolute;
+}
+
+FORM button{
+  width: 99%;
+  font-size: 2em;
+  color: white;
+  background-color: rgb(46, 204, 113);
+  border: none;
+  cursor: pointer;
+  border-radius: 9px;
+  margin-top: 7px;
 }
