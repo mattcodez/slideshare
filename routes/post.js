@@ -71,14 +71,13 @@ module.exports = function(app) {
 		if (!post) {
 			return res.json(500, err);
 		}
-		
+console.dir(post);
 		var newPhoto = req.files.photos.name;
 		if (newPhoto){
-			post.photos.addToSet(newPhoto);
+			//post.photos.addToSet(newPhoto);
 		}
-		
-console.dir(post);
-      return post.save(function (err) {
+post.set('title', 'move3');
+      return post.save(function (err) {console.dir(post);
         if (!err) {
           console.log("updated post");
           return res.json(200, post);
@@ -87,7 +86,6 @@ console.dir(post);
         }
       });
     });
-
   };
 
   // DELETE
