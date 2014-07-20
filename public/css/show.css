@@ -30,6 +30,12 @@
 
 #qrcode{
   position:absolute;
+  width: 100%;
+}
+
+#qrcode IMG{
+	display:block;
+	margin:0 auto;
 }
 
 FORM button{
