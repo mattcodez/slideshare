@@ -8,6 +8,10 @@
   width: 25%;
 }
 
+#side H3{
+	text-align: center;
+}
+
 #title{
 	text-align: center;
 }
