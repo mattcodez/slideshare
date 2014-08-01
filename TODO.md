@@ -2,3 +2,4 @@
 - [ ] Move hash code to separate file
 - [ ] Resize images for lower bandwidth, possibly client side
 - [x] Titles not displaying when clicked (bad query?)
+- [ ] https://github.com/dylang/shortid
