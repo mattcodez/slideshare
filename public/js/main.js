@@ -20,16 +20,16 @@ function handlers(){
 		e.preventDefault();
 		var form = $(this);
 		createShow({post:{title:form.find('[name=title]').val()}},function(show){
-			goToShow(show.hash);
+			goToShow(show._id);
 		});
 
 		return false;
 	});
-	
+
 	$('#existingShow').submit(function(e){
 		e.preventDefault();
 		var form = $(this);
-		var showId = form.find('[name=hashid]').val();
+		var showId = form.find('[name=_id]').val();
 		goToShow(showId);
 		return false;
 	});
@@ -46,7 +46,7 @@ function addShowItem(el, show){
 	el.append('<p></p>').append(
 		$('<a style="color:red;"></a>')
 		.text(show.title)
-		.attr('href', '/show/' + show.hash)
+		.attr('href', '/show/' + show._id)
 	);
 }
 

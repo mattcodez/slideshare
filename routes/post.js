@@ -1,17 +1,6 @@
 'use strict';
 
 var util = require('util');
-var Hashids = require("hashids");
-var hashids = new Hashids(
-  "this is my salt",
-  4,
-  'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-'
-);
-
-function getPostId(hash){
-  var hash = (hash || '').toUpperCase();
-  return hashids.decrypt(hash);
-}
 
 module.exports = function(app) {
   // Module dependencies.
@@ -32,8 +21,7 @@ module.exports = function(app) {
 
   // GET
   api.post = function (req, res) {
-	 //Have to use parseInt as Mongoose or MongoDB doesn't try very hard to cast "2" to 2
-    Post.findOne({ '_id': parseInt(getPostId(req.params.hash), 10) }, function(err, post) {
+    Post.findOne({ '_id': req.params._id}, function(err, post) {
       if (err) {
         res.json(404, err);
       } else {
@@ -65,19 +53,17 @@ module.exports = function(app) {
 
   // PUT
   api.editPost = function (req, res) {
-    var id = getPostId(req.params.hash);
-	 
-    Post.findById(~~id, function (err, post) {
-		if (!post) {
-			return res.json(500, err);
-		}
-console.dir(post);
-		var newPhoto = req.files.photos.name;
-		if (newPhoto){
-			//post.photos.addToSet(newPhoto);
-		}
-post.set('title', 'move3');
-      return post.save(function (err) {console.dir(post);
+    Post.findById(req.params._id, function (err, post) {
+  		if (!post) {
+  			return res.json(500, err);
+  		}
+
+  		var newPhoto = req.files.photos.name;
+  		if (newPhoto){
+  			post.photos.addToSet(newPhoto);
+  		}
+
+      return post.save(function (err) {
         if (!err) {
           console.log("updated post");
           return res.json(200, post);
@@ -107,8 +93,8 @@ post.set('title', 'move3');
 
 
   app.get('/api/posts', api.posts);
-  app.get('/api/post/:hash', api.post);
+  app.get('/api/post/:_id', api.post);
   app.post('/api/post', api.addPost);
-  app.put('/api/post/:hash', api.editPost);
-  app.delete('/api/post/:hash', api.deletePost);
+  app.put('/api/post/:_id', api.editPost);
+  app.delete('/api/post/:_id', api.deletePost);
 };
