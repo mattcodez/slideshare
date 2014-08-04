@@ -1,13 +1,13 @@
-#body{
-  background-color: #f39c12;
-  padding-left: 1em;
+body{
+  background-color: #DEF5F5;
+  padding-left: 0.2em;
 }
 
 #side{
   position: absolute;
   width: 25%;
   background-color: rgb(255, 164, 134);
-  padding: 1em;
+  padding: 0.5em;
   border-radius: 5%;
 }
 
@@ -34,10 +34,11 @@
 #picture{
   position:absolute;
   right:0;
-  width: 74%;
+  width: 70%;
   height: 90%;
   background-repeat: no-repeat;
   background-size: contain;
+  margin-right: 1em;
 }
 
 #qrcode{
