@@ -1,5 +1,5 @@
 - [x] Create new show with existing post api
-- [ ] Move hash code to separate file
-- [ ] Resize images for lower bandwidth, possibly client side
 - [x] Titles not displaying when clicked (bad query?)
-- [ ] https://github.com/dylang/shortid
+- [x] https://github.com/dylang/shortid
+- [ ] Ensure mobile responsive layout
+- [ ] "View an existing show" doesn't work
