@@ -8,9 +8,6 @@ function init(){
 	//Get initial show data
 	$.getJSON('/api/post/' + showId, function(show){
 		loadSection($(document.body), show.post);
-		$('#side a.link')
-			.text(window.location.href)
-			.attr('href', window.location.href);
 		photoList = show.post.photos || photoList;
 	});
 

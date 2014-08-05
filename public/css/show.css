@@ -1,6 +1,7 @@
 body{
   background-color: #DEF5F5;
   padding-left: 0.2em;
+  font-family: 'Lato', sans-serif;
 }
 
 #side{
@@ -18,6 +19,12 @@ body{
 
 #side P{
   text-align:center;
+}
+
+#side [data-link=_id]{
+	font-size: 1.6em;
+	font-weight: bold;
+	color: rgb(14, 113, 219);
 }
 
 #title{
