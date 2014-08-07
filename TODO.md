@@ -5,4 +5,4 @@
 - [x] "View an existing show" doesn't work
 - [x] Better text styling for side box
 - [ ] Logo button or text on show page to go home
-- [ ] Try switching to IMG
+- [x] Try switching to IMG

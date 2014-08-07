@@ -6,7 +6,7 @@ body{
 
 a.main{
     margin-left: 10.9%;
-  
+
 }
 
 #side{
@@ -46,10 +46,13 @@ a.main{
   position:absolute;
   right:0;
   width: 70%;
-  height: 90%;
-  background-repeat: no-repeat;
-  background-size: contain;
+  height: 90;
   margin-right: 1em;
+}
+
+#picture img{
+    width: 100%;
+  
 }
 
 #qrcode{

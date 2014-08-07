@@ -31,7 +31,7 @@ function init(){
 	});
 
 	//Swap photos
-	var picHolder = $('#picture');
+	var pic = $('#picture img');
 	var picIndex = 0;
 	setInterval(function(){
 		if (!photoList[picIndex]){
@@ -42,9 +42,7 @@ function init(){
 		}
 
 		var photo = photoList[picIndex++];
-		picHolder.css(
-			'background-image', 'url(/uploads/' + photo + ')'
-		);
+		pic.attr('src', '/uploads/' + photo);
 	}, 4000);
 
 	//Generate QRCode
