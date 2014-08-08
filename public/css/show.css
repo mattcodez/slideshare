@@ -4,18 +4,16 @@ body{
   font-family: 'Lato', sans-serif;
 }
 
-a.main{
-    margin-left: 10.9%;
-
-}
-
 #side{
   position: absolute;
   width: 25%;
-  background-color: rgb(255, 164, 134);
-  padding: 0.5em;
-  border-radius: 5%;
   min-width: 260px;
+}
+
+#side .inner{
+  background-color: rgb(255, 164, 134);
+  border-radius: 5%;
+  padding: 0.5em;
 }
 
 #side H3{
@@ -45,14 +43,13 @@ a.main{
 #picture{
   position:absolute;
   right:0;
-  width: 70%;
-  height: 90;
+  width: 72%;
   margin-right: 1em;
 }
 
 #picture img{
     width: 100%;
-  
+
 }
 
 #qrcode{

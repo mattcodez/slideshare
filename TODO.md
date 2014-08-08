@@ -4,5 +4,7 @@
 - [x] Ensure mobile responsive layout
 - [x] "View an existing show" doesn't work
 - [x] Better text styling for side box
-- [ ] Logo button or text on show page to go home
+- [x] Logo button or text on show page to go home
 - [x] Try switching to IMG
+- [ ] Test with mobile
+- [ ] Better file upload styling

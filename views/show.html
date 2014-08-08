@@ -9,22 +9,24 @@
 	<script src="/js/show.js"></script>
 </head>
 <body>
-	<a class="main" href="/main">Main Page</a>
 	<div id="side">
-		<h2 id="title" data-link="title"></h2>
+		<p><a class="main" href="/main">Main Page</a></p>
+		<div class="inner">
+			<h2 id="title" data-link="title"></h2>
 
-		<div id="picAdd">
-			<span>Add picture: </span>
-			<form id="newImage">
-				<input type="file" accept="image/*" capture="camera">
-				<button type="submit">Upload</button>
-			</form>
+			<div id="picAdd">
+				<span>Add picture: </span>
+				<form id="newImage">
+					<input type="file" accept="image/*" capture="camera">
+					<button type="submit">Upload</button>
+				</form>
+			</div>
+
+			<h3>Share the show!</h3>
+			<p data-link="_id"></p>
+			<h3>Or scan the QR code below</h3>
+			<div id="qrcode"></div>
 		</div>
-
-		<h3>Share the show!</h3>
-		<p data-link="_id"></p>
-		<h3>Or scan the QR code below</h3>
-		<div id="qrcode"></div>
 	</div>
 
 	<div id="picture"><img></div>
