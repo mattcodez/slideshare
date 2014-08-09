@@ -10,9 +10,22 @@ function init(){
 		loadSection($(document.body), show.post);
 		photoList = show.post.photos || photoList;
 	});
+	
+	var newImageForm = $('#newImage');
+	var fileInput = newImageForm.find('INPUT[type=file]');
+	
+	//Trigger file selection from separate button
+	$('#picAdd BUTTON').on('click', function(){
+		fileInput.click();
+	});
+	
+	//Submit form when file is selected
+	fileInput.on('change', function(){
+		newImageForm.submit();
+	});
 
 	//Upload new photos
-	$('#newImage').submit(function(e){
+	newImageForm.submit(function(e){
 		e.preventDefault();
 		var form = $(this);
 

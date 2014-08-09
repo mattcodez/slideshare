@@ -2,4 +2,4 @@
 - [x] "View an existing show" doesn't work
 - [x] Better text styling for side box
 - [ ] Test with mobile
-- [ ] Better file upload styling
+- [x] Better file upload styling

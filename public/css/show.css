@@ -62,7 +62,7 @@ body{
 	margin:0 auto;
 }
 
-FORM button{
+#picAdd button{
   width: 99%;
   font-size: 2em;
   color: white;
