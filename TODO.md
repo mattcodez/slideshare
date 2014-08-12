@@ -2,4 +2,7 @@
 - [x] "View an existing show" doesn't work
 - [x] Better text styling for side box
 - [ ] Test with mobile
+  - [ ] Side text small at top
 - [x] Better file upload styling
+- [ ] Other clients need to update list
+- [ ] Auto-rotate to orientation
