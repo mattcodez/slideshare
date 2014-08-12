@@ -6,3 +6,4 @@
 - [x] Better file upload styling
 - [ ] Other clients need to update list
 - [ ] Auto-rotate to orientation
+- [ ] Pre-load next image while displaying current. Might be able to just add the <img> and hide.
