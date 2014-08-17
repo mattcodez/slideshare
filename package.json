@@ -12,7 +12,8 @@
     "body-parser": "^1.4.3",
     "errorhandler": "latest",
     "multer": "~0.1.0",
-    "shortid": "~2.0.1"
+    "shortid": "~2.0.1",
+    "socket.io": "^1.0.6"
   },
   "devDependencies": {
     "gulp": "latest",

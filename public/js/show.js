@@ -4,6 +4,8 @@ function init(){
 	var sections = window.location.pathname.split('/');
 	var showId = sections[sections.length - 1];
 	var photoList = [];
+	
+	var socket = io.connect('/');
 
 	//Get initial show data
 	$.getJSON('/api/post/' + showId, function(show){

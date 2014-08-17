@@ -8,15 +8,16 @@ var express = require('express'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     errorhandler = require('errorhandler'),
-	 pureautoinc = require('mongoose-pureautoinc');
+	 socketio = require('socket.io');
 
 var app = module.exports = exports.app = express();
+var server = require('http').createServer(app);
+var io = socketio(server);
 
 app.locals.siteName = "slushtest";
 
 // Connect to database
 var db = require('./config/db');
-pureautoinc.init(db.mongoose.connections[0]);
 app.use(express.static(__dirname + '/public'));
 
 
@@ -75,6 +76,6 @@ fs.readdirSync(routesPath).forEach(function(file) {
 });
 
 // Start server
-app.listen(port, function () {
+server.listen(port, function () {
   console.log('Express server listening on port %d in %s mode', port, app.get('env'));
 });
