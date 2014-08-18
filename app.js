@@ -75,6 +75,18 @@ fs.readdirSync(routesPath).forEach(function(file) {
   require(routesPath + '/' + file)(app);
 });
 
+
+//Real-time updates
+io.on('connection', function(socket){
+  socket.on('setShow', function(data){
+    data.showId && socket.join(data.showId);
+  });
+});
+
+app._photoUpdate = function(showId, photoList){
+  io.to(showId).emit('updatePhotoList', photoList);
+};
+
 // Start server
 server.listen(port, function () {
   console.log('Express server listening on port %d in %s mode', port, app.get('env'));

@@ -61,6 +61,7 @@ module.exports = function(app) {
   		var newPhoto = req.files.photos.name;
   		if (newPhoto){
   			post.photos.addToSet(newPhoto);
+        app._photoUpdate && app._photoUpdate(post._id, post.photos);
   		}
 
       return post.save(function (err) {
