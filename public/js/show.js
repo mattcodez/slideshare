@@ -4,23 +4,29 @@ function init(){
 	var sections = window.location.pathname.split('/');
 	var showId = sections[sections.length - 1];
 	var photoList = [];
-	
+
 	var socket = io.connect('/');
+
+	socket.emit('setShow', {showId:showId});
+
+	socket.on('updatePhotoList', function(data){
+		photoList = data || photoList;
+	});
 
 	//Get initial show data
 	$.getJSON('/api/post/' + showId, function(show){
 		loadSection($(document.body), show.post);
 		photoList = show.post.photos || photoList;
 	});
-	
+
 	var newImageForm = $('#newImage');
 	var fileInput = newImageForm.find('INPUT[type=file]');
-	
+
 	//Trigger file selection from separate button
 	$('#picAdd BUTTON').on('click', function(){
 		fileInput.click();
 	});
-	
+
 	//Submit form when file is selected
 	fileInput.on('change', function(){
 		newImageForm.submit();

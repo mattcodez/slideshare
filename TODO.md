@@ -5,5 +5,6 @@
   - [ ] Side text small at top
 - [x] Better file upload styling
 - [ ] Other clients need to update list
+  - [ ] Have clients switch to newest photo on list update?
 - [ ] Auto-rotate to orientation
 - [ ] Pre-load next image while displaying current. Might be able to just add the <img> and hide.
