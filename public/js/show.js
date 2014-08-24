@@ -10,7 +10,11 @@ function init(){
 	socket.emit('setShow', {showId:showId});
 
 	socket.on('updatePhotoList', function(data){
-		photoList = data || photoList;
+		if (data){
+			photoList = data;
+			showPic(photoList.length - 1); //Always show latest pic
+			resetSwap(); //Give latest pic full time
+		}
 	});
 
 	//Get initial show data
@@ -54,7 +58,7 @@ function init(){
 	//Swap photos
 	var pic = $('#picture img');
 	var picIndex = 0;
-	setInterval(function(){
+	function swapPic(){
 		if (!photoList[picIndex]){
 			if (photoList.length === 0){
 				return;
@@ -62,9 +66,21 @@ function init(){
 			picIndex = 0;
 		}
 
-		var photo = photoList[picIndex++];
+		showPic(picIndex++);
+	}
+
+	var swapInterval = null;
+	function resetSwap(){
+		var swapDelay = 4000;
+		clearInterval(swapInterval);
+		swapInterval = setInterval(swapPic, swapDelay);
+	}
+	resetSwap(); //init
+
+	function showPic(index){
+		var photo = photoList[index];
 		pic.attr('src', '/uploads/' + photo);
-	}, 4000);
+	}
 
 	//Generate QRCode
 	var qrcode = new QRCode("qrcode", {
